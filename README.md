@@ -1,4 +1,4 @@
-# discourse-hide-edit-category
+# Hide Category when Editing
 
 This component is meant to hide the option to change category when editing a topic
 
