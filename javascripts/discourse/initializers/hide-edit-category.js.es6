@@ -16,7 +16,7 @@ export default {
             }
 
             // Prevent editing category from Edit Title
-            api.modifyClass("component:edit-category-topic-template", {
+            api.modifyClass("component:reviewable-field-category", {
                 pluginId: "RestrictCategoryChange",
                 didInsertElement: function() {
                     if(!canModifyTopicCategory) {
