@@ -16,7 +16,7 @@ export default {
             }
 
             // Prevent editing category from Edit Title
-            api.modifyClass("controller:edit-topic", {
+            api.modifyClass("component:topic-category", {
                 pluginId: "RestrictCategoryChange",
                 didInsertElement: function() {
                     if(!canModifyTopicCategory) {
