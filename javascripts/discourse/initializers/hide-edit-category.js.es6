@@ -32,14 +32,12 @@ export default {
                             }
                         }
                         // Hide category selection in Edit Title mode
-                        if (document.getElementsByClassName('edit-topic-title')){
-                            let TitleCategoryInput = document.getElementsByClassName('category-chooser')[0];
-                            let TitleTagChoser = document.getElementsByClassName('mini-tag-chooser')[0];
-                            if(TitleCategoryInput != null) {
-                                TitleCategoryInput.remove();
-                                if(TitleTagChoser != null) {
-                                    TitleTagChoser.style.marginLeft = '0';
-                                }
+                        let TitleCategoryInput = document.getElementsByClassName('category-chooser')[0];
+                        let TitleTagChoser = document.getElementsByClassName('mini-tag-chooser')[0];
+                        if(TitleCategoryInput != null) {
+                            TitleCategoryInput.remove();
+                            if(TitleTagChoser != null) {
+                                TitleTagChoser.style.marginLeft = '0';
                             }
                         }
                     }
