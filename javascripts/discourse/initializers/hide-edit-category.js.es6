@@ -17,20 +17,30 @@ export default {
 
             // Prevent editing category from Edit First Post (courtesy of @Canapin)
             api.modifyClass("component:composer-title", {
-                pluginId: "PreventCategoryChange",
+                pluginId: "RestrictCategoryChange",
                 didInsertElement: function() {
-                  if(!canModifyTopicCategory) {
-                      let categoryInput = document.getElementsByClassName('category-input')[0];
-                      let miniTagChoser = document.getElementsByClassName('mini-tag-chooser')[0];
-                      if(categoryInput != null) {
-                          categoryInput.remove();
-                          if(miniTagChoser != null) {
-                              miniTagChoser.style.marginLeft = '0';
-                          }
-                      }
-                  }
+                    if(!canModifyTopicCategory) {
+                        // Hide category selection in First Reply Editing mode
+                        let FirstPostCategoryInput = document.getElementsByClassName('category-input')[0];
+                        let FirstPostTagChoser = document.getElementsByClassName('mini-tag-chooser')[0];
+                        if(FirstPostCategoryInput != null) {
+                            FirstPostCategoryInput.remove();
+                            if(FirstPostTagChoser != null) {
+                                FirstPostTagChoser.style.marginLeft = '0';
+                            }
+                        }
+                        // Hide category selection in Edit Title mode
+                        let TitleCategoryInput = document.getElementsByClassName('category-chooser')[0];
+                        let TitleTagChoser = document.getElementsByClassName('mini-tag-chooser')[0];
+                        if(TitleCategoryInput != null) {
+                            TitleCategoryInput.remove();
+                            if(TitleTagChoser != null) {
+                                TitleTagChoser.style.marginLeft = '0';
+                            }
+                        }
+                    }
                 }
-              });
+            });
 
         });
     }
