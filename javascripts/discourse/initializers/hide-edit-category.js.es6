@@ -15,7 +15,23 @@ export default {
                     currentUser.staff;
             }
 
-            // TODO: act on the interface by hiding the category selector unless the canModifyTopicCategory is true
+            // Prevent editing category from Edit First Post (courtesy of @Canapin)
+            api.modifyClass("component:composer-title", {
+                pluginId: "PreventCategoryChange",
+                didInsertElement: function() {
+                  if(!canModifyTopicCategory) {
+                      let categoryInput = document.getElementsByClassName('category-input')[0];
+                      let miniTagChoser = document.getElementsByClassName('mini-tag-chooser')[0];
+                      if(categoryInput != null) {
+                          categoryInput.remove();
+                          if(miniTagChoser != null) {
+                              miniTagChoser.style.marginLeft = '0';
+                          }
+                      }
+                  }
+                }
+              });
+
         });
     }
 };
