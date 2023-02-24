@@ -28,14 +28,15 @@ export default {
         // Prevent editing category from Edit First Post (courtesy of @Canapin)
         api.modifyClass("component:composer-title", {
           pluginId: "PreventCategoryChangeComposerFirst",
+          showCategoryChooser: false,
           didInsertElement: function () {
-            let categoryInput = document.getElementsByClassName("category-input")[0];
+            // let categoryInput = document.getElementsByClassName("category-input")[0];
+            // if (categoryInput != null) {
+            //     categoryInput.remove();  
+            // }
             let miniTagChoser = document.getElementsByClassName("mini-tag-chooser")[0];
-            if (categoryInput != null) {
-              categoryInput.remove();
-              if (miniTagChoser != null) {
-                miniTagChoser.style.marginLeft = "0";
-              }
+            if (miniTagChoser != null) {
+              miniTagChoser.style.marginLeft = "0";
             }
           },
         });
