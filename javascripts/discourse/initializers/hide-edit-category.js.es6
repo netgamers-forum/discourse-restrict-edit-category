@@ -5,7 +5,7 @@ import discourseComputed from "discourse-common/utils/decorators";
 export default {
   name: "restrict-edit-category",
   initialize() {
-    withPluginApi("0.8", (api) => {
+    withPluginApi("1.6.0", (api) => {
       let currentUser = api.getCurrentUser();
       let canModifyTopicCategory;
 
@@ -20,24 +20,17 @@ export default {
         api.modifyClass("controller:topic", {
           pluginId: "RestrictCategoryChangeTopic",
           showCategoryChooser: false,
-          didInsertElement: function () {
-            let miniTagChoser = document.getElementsByClassName("mini-tag-chooser")[0];
-            miniTagChoser.style.marginLeft = "0";
-          },
         });
         // Prevent editing category from Edit First Post (courtesy of @Canapin)
         api.modifyClass("component:composer-title", {
           pluginId: "PreventCategoryChangeComposerFirst",
-          showCategoryChooser: false,
           didInsertElement: function () {
-            // let categoryInput = document.getElementsByClassName("category-input")[0];
-            // if (categoryInput != null) {
-            //     categoryInput.remove();  
+            let categoryInput = document.getElementsByClassName("category-input")[0];
+            categoryInput.remove();
+            // let miniTagChoser = document.getElementsByClassName("mini-tag-chooser")[0];
+            // if (miniTagChoser != null) {
+            //   miniTagChoser.style.marginLeft = "0";
             // }
-            let miniTagChoser = document.getElementsByClassName("mini-tag-chooser")[0];
-            if (miniTagChoser != null) {
-              miniTagChoser.style.marginLeft = "0";
-            }
           },
         });
       }

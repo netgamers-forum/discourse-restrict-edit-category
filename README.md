@@ -16,3 +16,4 @@ This component is meant to hide the option to change category when editing a top
 We used this plugins as guideline to help us understand how to create ours
 
 - https://github.com/tshenry/discourse-restrict-uploads
+- https://github.com/discourse/discourse/blob/main/app/assets/javascripts/discourse/app/lib/plugin-api.js
