@@ -16,11 +16,12 @@ export default {
       }
 
       if (!canModifyTopicCategory) {
+        // Prevent editing from Topic Title Edit
         api.modifyClass("controller:topic", {
           pluginId: "RestrictCategoryChangeTopic",
           showCategoryChooser: false,
         });
-
+        // Prevent editing category from Edit First Post (courtesy of @Canapin)
         api.modifyClass("component:composer-title", {
           pluginId: "PreventCategoryChangeComposerFirst",
           didInsertElement: function () {
