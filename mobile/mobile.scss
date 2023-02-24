@@ -1,0 +1,20 @@
+// Mobile Composer Tag override
+#reply-control .with-tags .mini-tag-chooser {
+    margin-left: unset;
+    max-width: calc(100% - 3px);
+}
+
+// Mobile Title Category override
+#topic-title .edit-topic-title .category-chooser {
+    margin-right: unset;
+}
+
+// Mobile Composer Category override
+#reply-control .category-input, #reply-control .with-tags .category-input {
+    margin-left: unset;
+    max-width: calc(100% - 3px);
+}
+
+#reply-control .category-input .category-chooser {
+    margin-right: unset;
+}

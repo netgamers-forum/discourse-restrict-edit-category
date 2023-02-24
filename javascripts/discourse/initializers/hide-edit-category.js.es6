@@ -27,10 +27,6 @@ export default {
           didInsertElement: function () {
             let categoryInput = document.getElementsByClassName("category-input")[0];
             categoryInput.remove();
-            // let miniTagChoser = document.getElementsByClassName("mini-tag-chooser")[0];
-            // if (miniTagChoser != null) {
-            //   miniTagChoser.style.marginLeft = "0";
-            // }
           },
         });
       }
