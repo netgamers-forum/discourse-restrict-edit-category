@@ -20,15 +20,17 @@ export default {
         api.modifyClass("controller:topic", {
           pluginId: "RestrictCategoryChangeTopic",
           showCategoryChooser: false,
+          didInsertElement: function () {
+            let miniTagChoser = document.getElementsByClassName("mini-tag-chooser")[0];
+            miniTagChoser.style.marginLeft = "0";
+          },
         });
         // Prevent editing category from Edit First Post (courtesy of @Canapin)
         api.modifyClass("component:composer-title", {
           pluginId: "PreventCategoryChangeComposerFirst",
           didInsertElement: function () {
-            let categoryInput =
-              document.getElementsByClassName("category-input")[0];
-            let miniTagChoser =
-              document.getElementsByClassName("mini-tag-chooser")[0];
+            let categoryInput = document.getElementsByClassName("category-input")[0];
+            let miniTagChoser = document.getElementsByClassName("mini-tag-chooser")[0];
             if (categoryInput != null) {
               categoryInput.remove();
               if (miniTagChoser != null) {
