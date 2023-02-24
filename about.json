@@ -2,5 +2,5 @@
     "name": "Hide Edit Category",
     "component": true,
     "about_url": "about:blank",
-    "license_url": "https://github.com/thecrius/discourse-hide-edit-category/blob/main/LICENSE"
+    "license_url": "https://github.com/thecrius/discourse-restrict-edit-category/blob/main/LICENSE"
   }
