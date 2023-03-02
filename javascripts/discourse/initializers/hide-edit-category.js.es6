@@ -26,7 +26,9 @@ export default {
           pluginId: "PreventCategoryChangeComposerFirst",
           didInsertElement: function () {
             let categoryInput = document.getElementsByClassName("category-input")[0];
-            categoryInput.remove();
+            if (categoryInput.length>0){
+              categoryInput.remove();
+            }
           },
         });
       }
