@@ -5,6 +5,9 @@ export default {
   initialize(container) {
     withPluginApi("1.6.0", (api) => {
       const currentUser = api.getCurrentUser();
+      if (!currentUser) {
+        return;
+      }
       api.onPageChange((url, title) => {
         const topic = container.lookup("controller:topic")
         if (topic.model) {
