@@ -1,12 +1,15 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
-import { authorizesOneOrMoreExtensions } from "discourse/lib/uploads";
-import discourseComputed from "discourse-common/utils/decorators";
 
 export default {
   name: "restrict-edit-category",
   initialize() {
     withPluginApi("1.6.0", (api) => {
-      let currentUser = api.getCurrentUser();
+      const currentUser = api.getCurrentUser();
+      api.onPageChange((url, title) => {
+        const topic = container.lookup("controller:topic")
+        console.log(topic.get("model").get("details"))
+      })
+      
       let canModifyTopicCategory;
 
       if (currentUser) {
