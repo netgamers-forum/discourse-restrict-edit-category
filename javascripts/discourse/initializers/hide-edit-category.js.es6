@@ -4,18 +4,20 @@ export default {
   name: "restrict-edit-category",
   initialize(container) {
     withPluginApi("1.6.0", (api) => {
-      const currentUser = api.getCurrentUser();
-      if (!currentUser) {
-        return;
-      }
       api.onPageChange((url, title) => {
+        let canModifyTopicCategory = false;
+
+        const currentUser = api.getCurrentUser();
+        if (!currentUser) {
+          currentUser.trust_level = -1;
+          currentUser.staff = false;
+        }
+        
         const topic = container.lookup("controller:topic")
         if (topic.model) {
           const model = topic.get("model");
           currentUser.categoryModerator = !!model.get("details").can_moderate_category;
         }
-
-        let canModifyTopicCategory = false;
 
         if (currentUser) {
           canModifyTopicCategory =
@@ -25,11 +27,13 @@ export default {
         }
 
         if (!canModifyTopicCategory) {
+          
           // Prevent editing from Topic Title Edit
           api.modifyClass("controller:topic", {
             pluginId: "RestrictCategoryChangeTopic",
             showCategoryChooser: false,
           });
+
           // Prevent editing category from Edit First Post (courtesy of @Canapin)
           api.modifyClass("component:composer-title", {
             pluginId: "PreventCategoryChangeComposerFirst",
@@ -40,6 +44,7 @@ export default {
               }
             },
           });
+
         }
       })
     });
