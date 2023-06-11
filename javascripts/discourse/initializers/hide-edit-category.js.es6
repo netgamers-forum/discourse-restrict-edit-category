@@ -6,8 +6,12 @@ export default {
     withPluginApi("1.6.0", (api) => {
       const currentUser = api.getCurrentUser();
       api.onPageChange((url, title) => {
-        const topic = container.lookup("controller:topic")
-        console.log(topic.get("model").get("details"))
+        if (container) {
+          const topic = container.lookup("controller:topic")
+          console.log(topic.get("model").get("details"))
+        } else {
+          console.log('container not existing')
+        }
       })
       
       let canModifyTopicCategory;
