@@ -7,12 +7,9 @@ export default {
       const currentUser = api.getCurrentUser();
       api.onPageChange((url, title) => {
         const topic = container.lookup("controller:topic")
-        if (topic) {
-          console.log(topic)
-          // console.log(topic.get("model").get("details"))
-        } else {
-          console.log("Not in a topic");
-        }
+        console.log(topic)
+        console.log(topic.currentUser)
+        // console.log(topic.get("model").get("details"))
       })
       
       let canModifyTopicCategory;
