@@ -9,8 +9,10 @@ export default {
         const topic = container.lookup("controller:topic")
         console.log(topic)
         // console.log(topic.currentUser)
-        const model = topic.get("model");
-        console.log(model.get("details"));
+        if (topic.model) {
+          const model = topic.get("model");
+          console.log(model.get("details"));
+        }
       })
       
       let canModifyTopicCategory;
