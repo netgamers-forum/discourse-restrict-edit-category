@@ -4,7 +4,7 @@ This component is meant to restrict who can access the option to change category
 
 ## Features
 
-- Hide the select interface when editing unless being member of the `staff` group
+- Hide the select interface when editing unless being member of the `staff` group and `category moderators` if in their category.
 - Select which Trust Level have access to the change category in editing mode, with staff always included
 
 ## Source / Credits
