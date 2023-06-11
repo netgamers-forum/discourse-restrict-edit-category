@@ -12,6 +12,7 @@ export default {
         if (topic.model) {
           const model = topic.get("model");
           console.log(model.get("details"));
+          console.log('Can moderate category?', model.get("details").can_moderate_category);
         }
       })
       
