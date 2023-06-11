@@ -8,7 +8,8 @@ export default {
       api.onPageChange((url, title) => {
         const topic = container.lookup("controller:topic")
         if (topic) {
-          console.log(topic.get("model").get("details"))
+          console.log(topic)
+          // console.log(topic.get("model").get("details"))
         } else {
           console.log("Not in a topic");
         }
