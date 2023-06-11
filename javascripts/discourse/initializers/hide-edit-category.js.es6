@@ -7,10 +7,12 @@ export default {
       const currentUser = api.getCurrentUser();
       api.onPageChange((url, title) => {
         const topic = container.lookup("controller:topic")
-        console.log(topic)
+        // console.log(topic)
         // console.log(topic.currentUser)
         if (topic.model) {
           const model = topic.get("model");
+          console.log(model.get("details").can_moderate_category);
+          console.log(!!model.get("details").can_moderate_category);
           currentUser.categoryModerator = !!model.get("details").can_moderate_category;
         }
 
