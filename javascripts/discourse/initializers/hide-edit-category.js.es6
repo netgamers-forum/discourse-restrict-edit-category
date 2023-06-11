@@ -9,8 +9,10 @@ export default {
 
         const currentUser = api.getCurrentUser();
         if (!currentUser) {
-          currentUser.trust_level = -1;
-          currentUser.staff = false;
+          currentUser = {
+            trust_level: -1,
+            staff: false
+          }
         }
         
         const topic = container.lookup("controller:topic")
