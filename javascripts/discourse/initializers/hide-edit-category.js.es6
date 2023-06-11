@@ -8,8 +8,9 @@ export default {
       api.onPageChange((url, title) => {
         const topic = container.lookup("controller:topic")
         console.log(topic)
-        console.log(topic.currentUser)
-        // console.log(topic.get("model").get("details"))
+        // console.log(topic.currentUser)
+        const model = topic.get("model");
+        console.log(model.get("details"));
       })
       
       let canModifyTopicCategory;
