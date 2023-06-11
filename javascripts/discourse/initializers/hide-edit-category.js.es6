@@ -2,16 +2,12 @@ import { withPluginApi } from "discourse/lib/plugin-api";
 
 export default {
   name: "restrict-edit-category",
-  initialize() {
+  initialize(container) {
     withPluginApi("1.6.0", (api) => {
       const currentUser = api.getCurrentUser();
       api.onPageChange((url, title) => {
-        if (container) {
-          const topic = container.lookup("controller:topic")
-          console.log(topic.get("model").get("details"))
-        } else {
-          console.log('container not existing')
-        }
+        const topic = container.lookup("controller:topic")
+        console.log(topic.get("model").get("details"))
       })
       
       let canModifyTopicCategory;
